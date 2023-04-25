@@ -4,7 +4,13 @@ import {useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function App() {
-    const navigate = useNavigate();
+    const navigate = useNavigate();    
+    const navStat = () => {
+        navigate('/appStat');
+    };
+    const navHome = () => {
+        navigate('/');
+    };
     const navToLG = () => {
         navigate('/lg');
     };
@@ -25,10 +31,9 @@ function App() {
                     </div> 
                     <nav class="nav-menu mobile-menu">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Job Descriptions</a></li>
-                            {/* <li><a href="#">About</a></li> */}
-                            <li><a href="#">Contact</a></li>
+                            {/* <li><a href="/">Home</a></li>      */}
+                            <li><a onClick={navHome}>Home</a></li>
+                            <li><a onClick={navStat}>Application Status</a></li>
                             <li><a onClick={navToProfile}>Profile</a></li>
                             <li><a onClick={navToLG}>Sign Up</a></li>
                         </ul>

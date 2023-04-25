@@ -1,4 +1,5 @@
 import './App.css';
+import App from './App';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,30 +11,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 function UIUX_JD() {
   return (
     <div className="JD">
-        <header class="header-section">
-            <div class="nav-item">
-                <div class="container">
-		            <div class="nav-depart">
-                            <div class="logo">
-                            <img src="assets/img/Capture.png" alt="" /><a href="#">
-                                    Job Matchers
-                                </a>
-                            </div>
-                    </div> 
-                    <nav class="nav-menu mobile-menu">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Job Descriptions</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
-                            {/* <li><a href="#" class="login-panel"><i class="fa fa-user"></i> Login</a> */}
-                            {/* </li> */}
-                        </ul>
-                    </nav>
-                    <div id="mobile-menu-wrap"></div>
-                </div>
-            </div>
-        </header>
+        <App></App>
               
         <div class="banner-section spad">
             <div class="container-fluid">

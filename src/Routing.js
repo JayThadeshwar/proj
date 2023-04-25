@@ -5,6 +5,7 @@ import UIUX_JD from './UIUX_JD';
 import JD from './JD';
 import Login from './Login';
 import Profile1 from './Profile1';
+import ApplicationStat from './Status';
 
 function Routing(){
     
@@ -15,6 +16,7 @@ function Routing(){
                 <Route path='/uiux_jd' element={<UIUX_JD/>} />
                 <Route path='/jd' element={<JD/>} />
                 <Route path='/lg' element={<Login/>} />
+                <Route path='/appStat' element={<ApplicationStat/>} />
                 <Route path='/profile1' element={<Profile1/>} />
             </Routes>
         </Router>
