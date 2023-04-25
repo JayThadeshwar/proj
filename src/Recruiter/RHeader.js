@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 function RHeader() {
     const navigate = useNavigate();
+    const navToLogout = () => {
+        navigate('/lg');
+    };
     const navToAddJobs = () => {
         navigate('/addjob');
     };
@@ -36,6 +39,7 @@ function RHeader() {
                             <li><a onClick={navToMyJob}>My Jobs</a></li>
                             <li><a onClick={navToFilterCandidate}>Filter Candidate</a></li>
                             <li><a onClick={navToProfile}>Profile</a></li>
+                            <li><a onClick={navToLogout}>Logout</a></li>
                             {/* <li><a onClick={navToLG}>Sign Up</a></li> */}
                         </ul>
                     </nav>

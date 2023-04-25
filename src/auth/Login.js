@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
+import { TextField, MenuItem } from '@mui/material';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
@@ -12,19 +12,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const theme = createTheme();
 
@@ -36,6 +23,16 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+  };
+
+  const options = [
+    { label: 'Candidate', value: 'candidate' },
+    { label: 'Recruiter', value: 'recruiter' },
+  ];
+
+  const [selectedOption, setSelectedOption] = useState('');
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
   };
 
   return (
@@ -77,11 +74,27 @@ export default function SignIn() {
               id="password"
               autoComplete="current-password"
             />
+            <TextField
+              margin="normal"
+              select
+              required
+              fullWidth
+              label="Select your user"
+              value={selectedOption}
+              onChange={handleOptionChange}
+            >
+              {options.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
+              href = {selectedOption === "candidate" ? "/" : "/rhome"}
               type="submit"
               fullWidth
               variant="contained"
@@ -103,7 +116,6 @@ export default function SignIn() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
