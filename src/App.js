@@ -11,7 +11,7 @@ function App() {
     const navHome = () => {
         navigate('/');
     };
-    const navToLG = () => {
+    const navToLogout = () => {
         navigate('/lg');
     };
     const navToProfile = () => {
@@ -35,7 +35,8 @@ function App() {
                             <li><a onClick={navHome}>Home</a></li>
                             <li><a onClick={navStat}>Application Status</a></li>
                             <li><a onClick={navToProfile}>Profile</a></li>
-                            <li><a onClick={navToLG}>Sign Up</a></li>
+                            <li><a onClick={navToLogout}>Logout</a></li>
+                            {/* <li><a onClick={navToLG}>Sign Up</a></li> */}
                         </ul>
                     </nav>
                     <div id="mobile-menu-wrap"></div>
