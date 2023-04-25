@@ -9,6 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 
 const columns = [
     { id: 'name', label: 'Company Name', minWidth: 170 },
@@ -17,29 +18,25 @@ const columns = [
         id: 'date',
         label: 'Date',
         minWidth: 170,
-        format: (value) => value.toLocaleString('en-US'),
     },
     {
         id: 'status',
         label: 'Status',
         minWidth: 170,
-        format: (value) => value.toLocaleString('en-US'),
     },
     {
         id: 'reason',
-        label: 'Reason',
+        label: 'Comment',
         minWidth: 170,
-        // align: 'right',
-        format: (value) => value.toFixed(2),
     },
 ];
 
-function createData(name, role, date, status, reason) {    
-    return { name, role, date, status, reason};
+function createData(name, role, date, status, reason) {
+    return { name, role, date, status, reason };
 }
 
 const rows = [
-    createData('Amazon', 'SDE-1', '2023-01-22', 'Rejected', 'NA'),
+    createData('Amazon', 'SDE-1', '2023-01-22', 'Rejected', 'Check reason'),
     createData('Google', 'Network Engineer', '2023-03-12', 'Under review', 'NA'),
     createData('IIFL', 'Analyst', '2023-03-30', 'Accepted', 'NA'),
     createData('IIFL', 'Analyst', '2023-03-30', 'Accepted', 'NA'),
@@ -96,9 +93,13 @@ function ApplicationStat() {
                                                     const value = row[column.id];
                                                     return (
                                                         <TableCell key={column.id} align={column.align}>
-                                                            {column.format && typeof value === 'number'
-                                                                ? column.format(value)
-                                                                : value}
+                                                            {column.id == "reason" && value == "Check reason" ? 
+                                                            (
+                                                                <Link href="/rejExpl">
+                                                                    {value}
+                                                                </Link>                      
+                                                            ) 
+                                                            : value}
                                                         </TableCell>
                                                     );
                                                 })}

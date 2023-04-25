@@ -6,6 +6,7 @@ import JD from './JD';
 import Login from './Login';
 import Profile1 from './Profile1';
 import ApplicationStat from './Status';
+import RejReasonExp from './RejReson';
 
 function Routing(){
     
@@ -17,6 +18,7 @@ function Routing(){
                 <Route path='/jd' element={<JD/>} />
                 <Route path='/lg' element={<Login/>} />
                 <Route path='/appStat' element={<ApplicationStat/>} />
+                <Route path='/rejExpl' element={<RejReasonExp/>} />
                 <Route path='/profile1' element={<Profile1/>} />
             </Routes>
         </Router>
