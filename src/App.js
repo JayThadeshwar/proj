@@ -30,9 +30,7 @@ function App() {
                             {/* <li><a href="#">About</a></li> */}
                             <li><a href="#">Contact</a></li>
                             <li><a onClick={navToProfile}>Profile</a></li>
-                            <li><Button onClick={navToLG} size="medium">View All</Button></li>
-                            <li><a href="#" class="login-panel"><i class="fa fa-user"></i> Login</a>
-                            </li>
+                            <li><a onClick={navToLG}>Sign Up</a></li>
                         </ul>
                     </nav>
                     <div id="mobile-menu-wrap"></div>
