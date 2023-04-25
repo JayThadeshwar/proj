@@ -6,6 +6,10 @@ import JD from './JD';
 import Login from './Login';
 import Profile1 from './Profile1';
 import ApplicationStat from './Status';
+import RHome from './Recruiter/RHome';
+import RProfile from './Recruiter/RProfile';
+import AddJob from './Recruiter/AddJob';
+import MyJob from './Recruiter/MyJob';
 
 function Routing(){
     
@@ -18,6 +22,10 @@ function Routing(){
                 <Route path='/lg' element={<Login/>} />
                 <Route path='/appStat' element={<ApplicationStat/>} />
                 <Route path='/profile1' element={<Profile1/>} />
+                <Route path='/rhome' element={<RHome/>} />
+                <Route path='/rprofile' element={<RProfile/>} />
+                <Route path='/addjob' element={<AddJob/>} />
+                <Route path='/myjob' element={<MyJob/>} />
             </Routes>
         </Router>
     );
