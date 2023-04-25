@@ -10,6 +10,7 @@ import RHome from './Recruiter/RHome';
 import RProfile from './Recruiter/RProfile';
 import AddJob from './Recruiter/AddJob';
 import MyJob from './Recruiter/MyJob';
+import FilterCandidate from './Recruiter/Filter';
 
 function Routing(){
     
@@ -26,6 +27,7 @@ function Routing(){
                 <Route path='/rprofile' element={<RProfile/>} />
                 <Route path='/addjob' element={<AddJob/>} />
                 <Route path='/myjob' element={<MyJob/>} />
+                <Route path='/filter' element={<FilterCandidate/>} />
             </Routes>
         </Router>
     );

@@ -14,6 +14,9 @@ function RHeader() {
     const navToProfile = () => {
         navigate('/rprofile');
     };
+    const navToFilterCandidate = () => {
+        navigate('/filter');
+    };
     
   return (
     <div className="App">
@@ -31,6 +34,7 @@ function RHeader() {
                         <ul>
                             <li><a onClick={navToAddJobs}>Post Jobs</a></li>
                             <li><a onClick={navToMyJob}>My Jobs</a></li>
+                            <li><a onClick={navToFilterCandidate}>Filter Candidate</a></li>
                             <li><a onClick={navToProfile}>Profile</a></li>
                             {/* <li><a onClick={navToLG}>Sign Up</a></li> */}
                         </ul>
