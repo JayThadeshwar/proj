@@ -9,7 +9,7 @@ function App() {
         navigate('/lg');
     };
     const navToProfile = () => {
-        navigate('/profile');
+        navigate('/profile1');
     };
   return (
     <div className="App">

@@ -4,7 +4,7 @@ import Home from './Home';
 import UIUX_JD from './UIUX_JD';
 import JD from './JD';
 import Login from './Login';
-import Profile from './Profile';
+import Profile1 from './Profile1';
 
 function Routing(){
     
@@ -15,7 +15,7 @@ function Routing(){
                 <Route path='/uiux_jd' element={<UIUX_JD/>} />
                 <Route path='/jd' element={<JD/>} />
                 <Route path='/lg' element={<Login/>} />
-                <Route path='/profile' element={<Profile/>} />
+                <Route path='/profile1' element={<Profile1/>} />
             </Routes>
         </Router>
     );

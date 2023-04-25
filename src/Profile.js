@@ -38,7 +38,9 @@ function Profile() {
             <br/><h2>My Profile</h2>
         </div>
         <div>
-            <h1>name:</h1>
+            <h4>Full Name:</h4>
+            
+
         </div>
 
         {/* FOOTER SECTION */}
