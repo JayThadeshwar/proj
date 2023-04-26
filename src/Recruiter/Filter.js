@@ -9,7 +9,10 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Box from '@mui/material/Box';
 import RHeader from './RHeader';
-import { MDBRange } from 'mdb-react-ui-kit';
+import { MDBRange, MDBBtn } from 'mdb-react-ui-kit';
+import Link from '@mui/material/Link';
+import JenilShah1 from "../PDF/JenilShah.pdf";
+import { Button } from '@mui/material';
 
 const columns = [
     { id: 'rank', label: 'Rank', minWidth: 100 },
@@ -25,18 +28,23 @@ function createData(rank, name, resume, reason) {
 }
 
 const rows = [
-    createData('1', 'Jenil Shah', '', 'NA'),
-    createData('2', 'Jay Thadeshwar', '', 'NA'),
-    createData('3', 'Karan Nandaniya', '', 'NA'),
-    createData('4', 'Raj Shah', '', 'NA'),
-    createData('5', 'Depti Patel', '', 'NA'),
-    createData('6', 'Shreya Sheth', '', 'NA'),
+    createData('1', 'Jenil Shah', 'View Resume', 'Check reason'),
+    createData('2', 'Jay Thadeshwar', 'View Resume', 'NA'),
+    createData('3', 'Karan Nandaniya', 'View Resume', 'NA'),
+    createData('4', 'Raj Shah', 'View Resume', 'NA'),
+    createData('5', 'Depti Patel', 'View Resume', 'NA'),
+    createData('6', 'Shreya Sheth', 'View Resume', 'NA'),
 ];
 
 function FilterCandidate() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
+    const [range, setRange] = React.useState(50);
+  
+    const filterrow = (e) => {
+        setRange(e.target.value);
+    }
+    
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
@@ -51,10 +59,13 @@ function FilterCandidate() {
             <RHeader/>
             
             <MDBRange
-                defaultValue={50}
                 id='customRange'
                 label='Threshold'
+                value={range}
+                onChange={filterrow}
             />
+
+            <MDBBtn outline className="ms-1" >Filter</MDBBtn>
 
             <Box
                 display="flex"
@@ -80,7 +91,7 @@ function FilterCandidate() {
                             </TableHead>
                             <TableBody>
                                 {rows
-                                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                                    .slice(0,range)
                                     .map((row) => {
                                         return (
                                             <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
@@ -88,9 +99,20 @@ function FilterCandidate() {
                                                     const value = row[column.id];
                                                     return (
                                                         <TableCell key={column.id} align={column.align}>
-                                                            {column.format && typeof value === 'number'
-                                                                ? column.format(value)
-                                                                : value}
+                                                            {column.id == "resume" && value == "View Resume" ? 
+                                                            (
+                                                                <Link href={JenilShah1}>
+                                                                    {value}
+                                                                </Link>                      
+                                                            ) 
+                                                            : 
+                                                            column.id == "reason" && value == "Check reason" ? 
+                                                            (
+                                                                <Link href="/rejExpl">
+                                                                    {value}
+                                                                </Link>                      
+                                                            ) 
+                                                            : value}
                                                         </TableCell>
                                                     );
                                                 })}
