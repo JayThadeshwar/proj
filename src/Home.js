@@ -70,7 +70,7 @@ function Home() {
                                 <CardContent>
                                     <SiJirasoftware size={'60px'} />
                                     <Typography variant="h5" component="div" style={{ paddingTop: '15px' }}>
-                                        Full Stack Developer
+                                        Business Analyst
                                     </Typography>
                                     <Typography color="text.secondary">
                                         860 Jobs Available

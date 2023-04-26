@@ -18,33 +18,41 @@ const columns = [
     { id: 'rank', label: 'Rank', minWidth: 100 },
     { id: 'name', label: 'Name', minWidth: 170 },
     { id: 'resume', label: 'Resume', minWidth: 170 },
-    { id: 'reason', label: 'Reason', minWidth: 170,
+    {
+        id: 'reason', label: 'Reason', minWidth: 170,
         format: (value) => value.toFixed(2),
     },
 ];
 
-function createData(rank, name, resume, reason) {    
-    return { rank, name, resume, reason};
+function createData(rank, name, resume, reason) {
+    return { rank, name, resume, reason };
 }
 
-const rows = [
-    createData('1', 'Jenil Shah', 'View Resume', 'Check reason'),
-    createData('2', 'Jay Thadeshwar', 'View Resume', 'NA'),
-    createData('3', 'Karan Nandaniya', 'View Resume', 'NA'),
-    createData('4', 'Raj Shah', 'View Resume', 'NA'),
-    createData('5', 'Depti Patel', 'View Resume', 'NA'),
-    createData('6', 'Shreya Sheth', 'View Resume', 'NA'),
+let rows = [
+    createData('1', 'Jay Thadeshwar', 'View Resume', 'Check reason'),
+    createData('2', 'Karan Nandaniya', 'View Resume', 'Check reason'),
+    createData('3', 'Jenil Shah', 'View Resume', 'Check reason'),
+    // createData('4', 'Raj Shah', 'View Resume', 'Check reason'),
+    // createData('5', 'Depti Patel', 'View Resume', 'Check reason'),
+    // createData('6', 'Shreya Sheth', 'View Resume', 'Check reason'),
 ];
 
 function FilterCandidate() {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [range, setRange] = React.useState(50);
-  
+    const [rowData, setRowData] = React.useState(rows);
+
     const filterrow = (e) => {
         setRange(e.target.value);
     }
-    
+
+    const handleFilterChange = () => {
+        var topK = Math.round(rowData.length * (range / 100))
+        let tempData = rowData.slice(0, topK)
+        setRowData(tempData)
+    }
+
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
@@ -56,23 +64,24 @@ function FilterCandidate() {
 
     return (
         <div className="FilterCandi">
-            <RHeader/>
-            
-            <MDBRange
-                id='customRange'
-                label='Threshold'
-                value={range}
-                onChange={filterrow}
-            />
+            <RHeader />
 
-            <MDBBtn outline className="ms-1" >Filter</MDBBtn>
-
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                <MDBRange
+                    id='customRange'
+                    label='Threshold: '
+                    value={range}
+                    onChange={filterrow}
+                />
+                <MDBBtn outline className="ms-1" onClick={handleFilterChange}>Filter</MDBBtn>
+            </Box>
             <Box
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
                 minHeight="90vh"
             >
+
                 <Paper sx={{ width: '80%', overflow: 'hidden' }}>
                     <TableContainer sx={{ maxHeight: 440 }}>
                         <Table stickyHeader aria-label="sticky table">
@@ -90,29 +99,29 @@ function FilterCandidate() {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {rows
-                                    .slice(0,range)
+                                {rowData
+                                    .slice(0, range)
                                     .map((row) => {
                                         return (
                                             <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                                                 {columns.map((column) => {
-                                                    const value = row[column.id];
+                                                    const value = row[column.id];                                                    
                                                     return (
                                                         <TableCell key={column.id} align={column.align}>
-                                                            {column.id == "resume" && value == "View Resume" ? 
-                                                            (
-                                                                <Link href={JenilShah1}>
-                                                                    {value}
-                                                                </Link>                      
-                                                            ) 
-                                                            : 
-                                                            column.id == "reason" && value == "Check reason" ? 
-                                                            (
-                                                                <Link href="/rejExpl">
-                                                                    {value}
-                                                                </Link>                      
-                                                            ) 
-                                                            : value}
+                                                            {column.id == "resume" && value == "View Resume" ?
+                                                                (
+                                                                    <Link href={JenilShah1}>
+                                                                        {value}
+                                                                    </Link>
+                                                                )
+                                                                :
+                                                                column.id == "reason" && value == "Check reason" ?
+                                                                    (                                                                        
+                                                                        <Link href={`/recuritRej${row.rank}`}>
+                                                                            {value}
+                                                                        </Link>
+                                                                    )
+                                                                    : value}
                                                         </TableCell>
                                                     );
                                                 })}
@@ -125,7 +134,7 @@ function FilterCandidate() {
                     <TablePagination
                         rowsPerPageOptions={[10, 25, 100]}
                         component="div"
-                        count={rows.length}
+                        count={rowData.length}
                         rowsPerPage={rowsPerPage}
                         page={page}
                         onPageChange={handleChangePage}

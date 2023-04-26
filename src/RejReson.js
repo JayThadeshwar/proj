@@ -25,14 +25,15 @@ function RejReasonExp() {
             >
                 <Grid container wrap="nowrap" spacing={2}>
                     <Grid item>
-                        <img src="assets/img/barPlotRej.png" alt="Bar Plot"></img>
+                        <img src="assets/img/LowWEBarGraphFinal.png" alt="Bar Plot"></img>
                     </Grid>
                     <Grid item xs>
                         <Typography>
-                            Thank you for applying for the Software Developer role at Google. We appreciate your interest in working with us and taking the time to submit your application.
-                            As a software developer at Google, the role requires a certain level of experience and skill set to tackle complex problems and deliver high-quality solutions. While we acknowledge your educational qualifications and potential, we believe that your current experience level may not be sufficient to handle the complexities of the role at this time.
-                            We encourage you to continue developing your skills and gaining experience in the field. We suggest that you take on some software development projects, internships, or work on open-source projects to gain practical experience and exposure to real-world software development scenarios.
-                            We recommend that you focus on building proficiency in programming languages such as Python, which is widely used for web development, data analysis, and machine learning. Additionally, gaining expertise in web development frameworks such as Django will be beneficial in developing scalable and robust web applications.
+                            Thank you for your interest in the Business Analyst role at Mesa Solutions. After careful consideration, we have decided to move forward with other candidates who possess more relevant work experience for the position.
+                            While we appreciate your enthusiasm and eagerness to join our team, the Business Analyst role at Mesa Solutions requires a high level of expertise and experience due to its complex nature. Our business analysts are responsible for analyzing data, identifying patterns and trends, making strategic recommendations, and providing insights to drive business growth. Given the dynamic and fast-paced nature of our industry, we require candidates who have a proven track record of success in similar roles to ensure effective performance in this position.
+                            As you mentioned in your application, you have limited work experience in the field of business analysis. We recognize that everyone has to start somewhere, and we encourage you to continue developing your skills in order to become a strong candidate for future opportunities. 
+                            Here are some suggestions to help you enhance your qualifications:
+                            Gain practical experience: Look for internships, entry-level positions, or volunteer opportunities that allow you to apply business analysis techniques in real-world scenarios. This will help you gain practical experience and develop a better understanding of the role.
                         </Typography>
                     </Grid>
                 </Grid>
