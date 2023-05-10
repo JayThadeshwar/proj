@@ -1,0 +1,14 @@
+{
+    "jobs" :[
+        {"id": "1", "position": "Business Analyst","cmpname": "Mesa Solutions", "location" : "Mumbai", "jobNature":"Full Time","salary":"35,000"},
+        {"id": "2", "position": "Software Developer","cmpname": "India Infoline Limited", "location" : "Mumbai", "jobNature":"Full Time","salary":"70,000"},
+        {"id": "3", "position": "Junior Analyst","cmpname": "ZS Associates", "location" : "Pune", "jobNature":"Full Time","salary":"70,000"},
+        {"id": "4", "position": "Senior Analyst","cmpname": "ZS Associates", "location" : "Pune", "jobNature":"Full Time","salary":"95,000"}
+    ],
+    "BAJDs" :[
+        {"jdid": "1", "cmpname": "Mesa Solutions", "position": "Technical Business Analyst", "location" : "Banglore", "jobNature":"Full Time","salary":"35,000"},
+        {"jdid": "2", "cmpname": "Trustech AV", "position": "Senior Business Analyst", "location" : "Pune", "jobNature":"Full Time","salary":"65,000"},
+        {"jdid": "3", "cmpname": "IT Solutions", "position": "SAP Business Analyst", "location" : "Mumbai", "jobNature":"Full Time","salary":"45,000"},
+        {"jdid": "4", "cmpname": "A&T", "position": "Junior Business Analyst", "location" : "Mumbai", "jobNature":"Full Time","salary":"30,000"}
+    ]
+}

@@ -1,4 +1,5 @@
 import './App.css';
+import { useLocation } from "react-router-dom";
 import App from './App';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -9,6 +10,10 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 
 function UIUX_JD() {
+    const location = useLocation();
+    const JDid = location.state.id;
+    console.log(JDid);
+
     return (
         <div className="JD">
             <App></App>
@@ -21,6 +26,7 @@ function UIUX_JD() {
                         </div>
                     </div>
                     <div class="row p-2">
+                        
                         <div class="col-lg-8">
 
                             <Card sx={{ display: 'flex' }}>
