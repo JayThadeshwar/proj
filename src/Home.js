@@ -73,7 +73,7 @@ function Home() {
                                         Business Analyst
                                     </Typography>
                                     <Typography color="text.secondary">
-                                        860 Jobs Available
+                                        5 Jobs Available
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
@@ -89,7 +89,7 @@ function Home() {
                                         Operations Manager
                                     </Typography>
                                     <Typography color="text.secondary">
-                                        50 Jobs Available
+                                        10 Jobs Available
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
@@ -105,7 +105,7 @@ function Home() {
                                         DevOps Engineer
                                     </Typography>
                                     <Typography color="text.secondary">
-                                        145 Jobs Available
+                                        3 Jobs Available
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
@@ -123,7 +123,7 @@ function Home() {
                                         UI/UX Developer
                                     </Typography>
                                     <Typography color="text.secondary">
-                                        300 Jobs Available
+                                        7 Jobs Available
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
@@ -136,10 +136,10 @@ function Home() {
                                 <CardContent>
                                     <TbDeviceAnalytics size={'60px'} />
                                     <Typography variant="h5" component="div" style={{ paddingTop: '15px' }}>
-                                        Business Analyst
+                                        Full Stack Developer
                                     </Typography>
                                     <Typography color="text.secondary">
-                                        1255 Jobs Available
+                                        12 Jobs Available
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
@@ -155,7 +155,7 @@ function Home() {
                                         Network Security Engineer
                                     </Typography>
                                     <Typography color="text.secondary">
-                                        30 Jobs Available
+                                        2 Jobs Available
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
