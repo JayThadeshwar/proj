@@ -5,34 +5,61 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { TextField, MenuItem } from '@mui/material';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-
   const options = [
     { label: 'Candidate', value: 'candidate' },
     { label: 'Recruiter', value: 'recruiter' },
   ];
 
+  const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPass] = useState("");
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+  };
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  const handlePasswordChange = (event) => {
+    setPass(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    let base_uri = "http://localhost:8000"
+    axios.post(base_uri + "/api/validate/", {
+      email: email,
+      password: password,
+      type: selectedOption
+    }).then((response) => {
+      if (response.status == 200) {
+        if (selectedOption == "candidate") {
+          localStorage.setItem("userInfo", JSON.stringify(response.data));
+          navigate('/')
+        } else {
+          localStorage.setItem("userInfo", JSON.stringify(response.data));
+          navigate('/rhome')
+        }
+      } else {
+        alert("Invalid credentials")
+      }
+    }).catch(function (error) {
+      console.log(error);
+    });
   };
 
   return (
@@ -63,6 +90,8 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={handleEmailChange}
             />
             <TextField
               margin="normal"
@@ -73,6 +102,8 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={handlePasswordChange}
             />
             <TextField
               margin="normal"
@@ -94,7 +125,8 @@ export default function SignIn() {
               label="Remember me"
             />
             <Button
-              href = {selectedOption === "candidate" ? "/" : "/rhome"}
+              // href={selectedOption === "candidate" ? "/" : "/rhome"}
+              onClick={handleSubmit}
               type="submit"
               fullWidth
               variant="contained"
@@ -114,7 +146,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href={"/rsignup"} variant="body2">
                   Recruiter Sign Up
                 </Link>
               </Grid>

@@ -13,6 +13,7 @@ import { IoIosInfinite } from "react-icons/io";
 import { MdImportantDevices } from "react-icons/md";
 import { TbDeviceAnalytics } from "react-icons/tb";
 import { GrShieldSecurity } from "react-icons/gr";
+import axios from "axios";
 
 function Home() {
     const navigate = useNavigate();
@@ -30,7 +31,21 @@ function Home() {
         if (!fileObj) {
             return;
         }
-
+        console.log(fileObj)
+        const formData = new FormData();
+        console.log(fileObj.name)
+        formData.append(
+            "file",
+            fileObj,
+            fileObj.name
+        );
+        const userDetails = JSON.parse(localStorage.getItem('userInfo'))
+        let base_uri = "http://localhost:8000"
+        axios.post(base_uri + "/api/upload_resume/" + userDetails["userId"], formData).then((resp) => {
+            if (resp.status == 200) {
+                alert("Resume uploaded.")
+            }
+        });
         event.target.value = null;
     };
 

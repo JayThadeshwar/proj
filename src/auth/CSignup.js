@@ -8,21 +8,44 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from "axios";
 
 const theme = createTheme();
 
 export default function CSignUp() {
+  // const [name, setName] = useState("");
+  // const [phn, setPhn] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPass] = useState("");
+  // const [dob, setDob] = useState("");
+  // const [addr, setAddr] = useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      fname: data.get('fname'),
-      email: data.get('email'),
-      mobile: data.get('mobile'),
-      dob: data.get('dob'),
-      address: data.get('address'),
-      password: data.get('password'),
-    });
+  
+    // let base_uri = "http://localhost:8000"
+    // axios.post(base_uri + "/api/validate/", {
+    //   userName: "Jay",
+    //   contactNumber: "",
+    //   emailId: "",
+    //   password: "",
+    //   dateOfBirth: "",
+    //   address: ""
+    // }).then((response) => {
+    //   if (response.status == 200) {
+    //     if (selectedOption == "candidate") {
+    //       localStorage.setItem("userInfo", JSON.stringify(response.data));
+    //       navigate('/')
+    //     } else {
+    //       localStorage.setItem("userInfo", JSON.stringify(response.data));
+    //       navigate('/rhome')
+    //     }
+    //   } else {
+    //     alert("Invalid credentials")
+    //   }
+    // }).catch(function (error) {
+    //   console.log(error);
+    // });
   };
 
   return (
@@ -51,7 +74,7 @@ export default function CSignUp() {
               id="fname"
               label="Full Name"
               name="fname"
-              autoComplete="fname"
+              autoComplete="fname"        
               autoFocus
             />
             <TextField
@@ -68,8 +91,8 @@ export default function CSignUp() {
               required
               fullWidth
               name="mobile"
-              label="Mobile No."              
-              id="mobile"        
+              label="Mobile No."
+              id="mobile"
             />
             <TextField
               margin="normal"
@@ -77,7 +100,7 @@ export default function CSignUp() {
               fullWidth
               id="dob"
               label="Date of Birth"
-              name="dob"              
+              name="dob"
             />
             <TextField
               margin="normal"
@@ -85,7 +108,7 @@ export default function CSignUp() {
               fullWidth
               id="address"
               label="Address"
-              name="address"              
+              name="address"
             />
             <TextField
               margin="normal"
@@ -98,14 +121,14 @@ export default function CSignUp() {
               autoComplete="current-password"
             />
             <Button
-              href = {"/"}            
+              href={"/"}
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
-            </Button>            
+            </Button>
           </Box>
         </Box>
       </Container>

@@ -7,12 +7,28 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { FaMapMarkerAlt } from "react-icons/fa";
-
+import axios from "axios";
 
 function UIUX_JD() {
     const location = useLocation();
-    const JDid = location.state.id;
-    console.log(JDid);
+    const JDInfo = location.state.info;
+    console.log(JDInfo);
+
+    const handleApplyNow = () => {
+        let userDetails = JSON.parse(localStorage.getItem("userInfo"))
+        let base_uri = "http://localhost:8000"
+
+        axios.post(base_uri + "/api/apply_job/", {
+            userId: userDetails["userId"],
+            jobId: JDInfo["jobId"]
+        }).then((resp) => {
+            if (resp.status == 201) {
+                alert("You have successfully applied for the job.")
+            } else {
+                alert("Failed to add job, please try again.")
+            }
+        });
+    }
 
     return (
         <div className="JD">
@@ -26,7 +42,7 @@ function UIUX_JD() {
                         </div>
                     </div>
                     <div class="row p-2">
-                        
+
                         <div class="col-lg-8">
 
                             <Card sx={{ display: 'flex' }}>
@@ -40,18 +56,19 @@ function UIUX_JD() {
                                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                                     <CardContent sx={{ flex: '1 0 auto' }}>
                                         <Typography component="div" variant="h4">
-                                            MESA Solutions
+                                            {JDInfo.companyName}
                                         </Typography>
                                         <Typography variant="subtitle1" color="text.secondary" component="div" style={{ paddingTop: '5px' }}>
-                                            <FaMapMarkerAlt /> Mumbai, India
+                                            <FaMapMarkerAlt /> {JDInfo.location}
                                         </Typography>
                                     </CardContent>
                                 </Box>
                             </Card>
                             <article style={{ paddingTop: '20px' }} class="inner-text">
                                 <h4>Job Description</h4>
-                                <p style={{ color: 'black', paddingTop: '10px' }}>It is a long established fact that a reader will beff distracted by the creadable content of a page when looking at its layout. The pointf of using Lorem Ipsum is that it has ahf mcore or-lgess normal distribution of letters,
-                                    as opposed to using, Content here content here making it look like readable.</p>
+                                <p style={{ color: 'black', paddingTop: '10px' }}>
+                                    {JDInfo.jobDescription}
+                                </p>
 
                                 <h4>Required Knowledge, Skills, and Abilities</h4>
                                 <ul style={{ paddingLeft: '30px', paddingTop: '10px', listStyle: 'circle' }}>
@@ -79,14 +96,14 @@ function UIUX_JD() {
                                 <p></p>
                                 <ol style={{ listStyle: 'none', paddingInline: '5px', fontSize: '18px' }}>
                                     <li>Posted Date : <span style={{ paddingLeft: '100px' }}> 12 Aug 2020</span></li>
-                                    <li>Location : <span style={{ paddingLeft: '130px' }}>Banglore</span></li>
-                                    <li>Vacancy : <span style={{ paddingLeft: '135px' }}>05</span></li>
-                                    <li>Job Nature : <span style={{ paddingLeft: '110px' }}>Full Time</span></li>
-                                    <li>Salary : <span style={{ paddingLeft: '150px' }}></span>&#8377; 35,000</li>
-                                    <li>Application Date : <span style={{ paddingLeft: '65px' }}>12 Sep 2020</span></li>
+                                    <li>Location : <span style={{ paddingLeft: '130px' }}>{JDInfo.location}</span></li>
+                                    <li>Vacancy : <span style={{ paddingLeft: '135px' }}>{Math.floor(Math.random() * (10 - 2 + 1)) + 2}</span></li>
+                                    <li>Job Nature : <span style={{ paddingLeft: '110px' }}>{JDInfo.jobNature}</span></li>
+                                    <li>Salary : <span style={{ paddingLeft: '150px' }}></span>&#8377; {JDInfo.salary}</li>
+                                    <li>Application Date : <span style={{ paddingLeft: '65px' }}>{JDInfo.lastDateOfApplication}</span></li>
                                 </ol>
                                 <p></p>
-                                <button onClick={()=>alert("Successfully Applied for the Job!")} class="primary-btn">Apply Now</button>
+                                <button onClick={handleApplyNow} class="primary-btn">Apply Now</button>
                             </article>
                             <article style={{ paddingTop: '20px' }} class="inner-text">
                                 <h4>Company Information</h4>
