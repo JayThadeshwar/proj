@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Home';
 import UIUX_JD from './UIUX_JD';
 import JD from './JD';
-import Login from './auth/Login'
+import Login from './auth/Login';
+import CSignUp from './auth/CSignup';
+import RSignUp from './auth/RSignup';
 import Profile1 from './Profile1';
 import ApplicationStat from './Status';
 import RejReasonExp from './RejReson';
@@ -25,6 +27,8 @@ function Routing(){
                 <Route path='/uiux_jd' element={<UIUX_JD/>} />
                 <Route path='/jd' element={<JD/>} />
                 <Route path='/lg' element={<Login/>} />
+                <Route path='/csignup' element={<CSignUp/>} />
+                <Route path='/rsignup' element={<RSignUp/>} />
                 <Route path='/appStat' element={<ApplicationStat/>} />
                 <Route path='/rejExpl' element={<RejReasonExp/>} />
                 <Route path='/profile1' element={<Profile1/>} />
