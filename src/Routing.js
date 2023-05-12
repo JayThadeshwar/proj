@@ -12,8 +12,6 @@ import RProfile from './Recruiter/RProfile';
 import AddJob from './Recruiter/AddJob';
 import MyJob from './Recruiter/MyJob';
 import RecruitRej from './Recruiter/RecruitRej';
-import RecruitRej2 from './Recruiter/rr2';
-import RecruitRej3 from './Recruiter/rr3';
 import FilterCandidate from './Recruiter/Filter';
 
 function Routing(){
@@ -33,9 +31,7 @@ function Routing(){
                 <Route path='/addjob' element={<AddJob/>} />
                 <Route path='/myjob' element={<MyJob/>} />
                 <Route path='/filter' element={<FilterCandidate/>} />
-                <Route path='/recuritRej1' element={<RecruitRej/>} />
-                <Route path='/recuritRej2' element={<RecruitRej2/>} />
-                <Route path='/recuritRej3' element={<RecruitRej3/>} />
+                <Route path='/recuritRej' element={<RecruitRej/>} />
             </Routes>
         </Router>
     );

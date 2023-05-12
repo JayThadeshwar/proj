@@ -12,6 +12,8 @@ import RHeader from './RHeader';
 import { MDBRange, MDBBtn } from 'mdb-react-ui-kit';
 import Link from '@mui/material/Link';
 import JenilShah1 from "../PDF/JenilShah.pdf";
+import Jay from "../PDF/JayThadeshwar_Resume_JP.pdf";
+import Karan from "../PDF/ResumeDAKaran.pdf";
 import { Button } from '@mui/material';
 
 const columns = [
@@ -32,9 +34,28 @@ let rows = [
     createData('1', 'Jay Thadeshwar', 'View Resume', 'Check reason'),
     createData('2', 'Karan Nandaniya', 'View Resume', 'Check reason'),
     createData('3', 'Jenil Shah', 'View Resume', 'Check reason'),
-    // createData('4', 'Raj Shah', 'View Resume', 'Check reason'),
-    // createData('5', 'Depti Patel', 'View Resume', 'Check reason'),
-    // createData('6', 'Shreya Sheth', 'View Resume', 'Check reason'),
+    createData('4', 'Raj Shah', 'View Resume', 'Check reason'),
+    createData('5', 'Depti Patel', 'View Resume', 'Check reason'),
+    createData('6', 'Shreya Sheth', 'View Resume', 'Check reason'),
+    createData('7', 'Aarav Sharma', 'View Resume', 'Check reason'),
+    createData('8', 'Riya Patel', 'View Resume', 'Check reason'),
+    createData('9', 'Aditya Singhania', 'View Resume', 'Check reason'),
+    createData('10', 'Kavya Gupta', 'View Resume', 'Check reason'),
+    createData('11', 'Riya Patel', 'View Resume', 'Check reason'),
+    createData('12', 'Stuti Rushi', 'View Resume', 'Check reason'),
+    createData('13', 'Kush Sangam', 'View Resume', 'Check reason'),
+    createData('14', 'Aditya Singhania', 'View Resume', 'Check reason'),
+    createData('15', 'Kavya Gupta', 'View Resume', 'Check reason'),
+    createData('16', 'Arjun Chatterjee', 'View Resume', 'Check reason'),
+    createData('17', 'Suhana Kapoor', 'View Resume', 'Check reason'),
+    createData('18', 'Rohit Verma', 'View Resume', 'Check reason'),
+    createData('19', 'Natasha Desai', 'View Resume', 'Check reason'),
+    createData('20', 'Aryan Malhotra', 'View Resume', 'Check reason'),
+    createData('21', 'Meera Khanna', 'View Resume', 'Check reason'),
+    createData('22', 'Kabir Bhatnagar', 'View Resume', 'Check reason'),
+    createData('23', 'Zara Sharma', 'View Resume', 'Check reason'),
+    createData('24', 'Veer Singh Rathore', 'View Resume', 'Check reason'),
+    createData('25', 'Ananya Reddy', 'View Resume', 'Check reason')
 ];
 
 function FilterCandidate() {
@@ -105,7 +126,7 @@ function FilterCandidate() {
                                         return (
                                             <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                                                 {columns.map((column) => {
-                                                    const value = row[column.id];                                                    
+                                                    const value = row[column.id];
                                                     return (
                                                         <TableCell key={column.id} align={column.align}>
                                                             {column.id == "resume" && value == "View Resume" ?
@@ -116,8 +137,8 @@ function FilterCandidate() {
                                                                 )
                                                                 :
                                                                 column.id == "reason" && value == "Check reason" ?
-                                                                    (                                                                        
-                                                                        <Link href={`/recuritRej${row.rank}`}>
+                                                                    (
+                                                                        <Link href={`/recuritRej?id=${row.rank}`}>
                                                                             {value}
                                                                         </Link>
                                                                     )
